@@ -1,39 +1,50 @@
-import './App.css'
+import { HashRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import SubnetCalculator from "./pages/SubnetCalculator";
+import PasswordGenerator from "./pages/PasswordGenerator";
+import EncryptionDecryption from "./pages/EncryptionDecryption";
+import WifiQRGenerator from "./pages/WifiQRGenerator";
+import PasswordStrengthAnalyzer from "./pages/PasswordStrengthAnalyzer";
+import TextDiff from "./pages/TextDiff";
+import EmojiPicker from "./pages/EmojiPicker";
 
 function App() {
-  const tools = [
-    'IPv4 Subnet Calculator',
-    'Encryption / Decryption',
-    'Password Generator',
-    'Password Strength Analyzer',
-    'WiFi QR Generator',
-    'Text Diff',
-    'Emoji Picker',
-  ]
-
   return (
-    <div className="container">
-      <header>
-        <h1>MindForge</h1>
-        <p>Privacy-First Utility Tools for IT Professionals</p>
-      </header>
-
-      <main>
-        <div className="tool-grid">
-          {tools.map((tool) => (
-            <div className="tool-card" key={tool}>
-              <h3>{tool}</h3>
-              <p>Coming Soon</p>
-            </div>
-          ))}
-        </div>
-      </main>
-
-      <footer>
-        <p>MindForge v0.1</p>
-      </footer>
-    </div>
-  )
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/subnet-calculator"
+          element={<SubnetCalculator />}
+        />
+        <Route
+          path="/password-generator"
+          element={<PasswordGenerator />}
+        />
+        <Route
+          path="/encryption-decryption"
+          element={<EncryptionDecryption />}
+        />
+        <Route
+          path="/wifi-qr-generator"
+          element={<WifiQRGenerator />}
+        />
+        <Route
+          path="/password-strength-analyzer"
+          element={<PasswordStrengthAnalyzer />}
+        />
+        <Route
+          path="/text-diff"
+          element={<TextDiff />}
+        />
+        <Route
+          path="/emoji-picker"
+          element={<EmojiPicker />}
+        />
+      </Routes>
+    </HashRouter>
+  );
 }
 
-export default App
+export default App;
